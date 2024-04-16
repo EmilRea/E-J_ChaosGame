@@ -23,8 +23,8 @@ int main()
 
     // Sets font for the title along with it's specifications
     sf::Font font1;
-    sf:Text title;
-    font1.loadFromFile("ChaosFont.ttf");
+sf:Text title;
+    font1.loadFromFile("../fonts/BungeeSpice-Regular.ttf");
     title.setFont(font1);
     title.setString("Chaos Game");
     title.setCharacterSize(50);
@@ -32,7 +32,7 @@ int main()
     // Sets font for the instructions along with it's specifications
     sf::Font font2;
     sf::Text instructions;
-    font2.loadFromFile("DirectionsFont.ttf");
+    font2.loadFromFile("../fonts/Frijole-Regular.ttf");
     instructions.setFont(font2);
     instructions.setString("\n- Click on three points to form a triangle.\n\n- Click on a fourth point to start the chaos.\n\n- Click 'r' to restart.");
     instructions.setCharacterSize(25);
@@ -40,7 +40,7 @@ int main()
     // Sets restarting screen
     sf::Font font3;
     sf::Text restarting;
-    font3.loadFromFile("DirectionsFont.ttf");
+    font3.loadFromFile("../fonts/RockSalt-Regular.ttf");
     restarting.setFont(font3);
     restarting.setString("restarting...");
     restarting.setCharacterSize(25);
@@ -136,7 +136,7 @@ int main()
 
                     for (int i = 0; i < 3; i++)//creates 3 dots a frame for a slower pattern generation rate
                     {
-                        
+
                         if (points.size() < 5500)//Medium size triangle and under: stops generating more dots when it his 5500 dots
                         {
                             trianglePoint = rand() % 3;
@@ -156,18 +156,18 @@ int main()
                     {
                         if (points.size() < 31000)//medium size triangle and over: stops generating more dots when it hits 31000 dots
                         {
-                        trianglePoint = rand() % 3;
+                            trianglePoint = rand() % 3;
 
-                        newX = (vertices[trianglePoint].x + points[points.size() - 1].x) / 2;
-                        newY = (vertices[trianglePoint].y + points[points.size() - 1].y) / 2;
+                            newX = (vertices[trianglePoint].x + points[points.size() - 1].x) / 2;
+                            newY = (vertices[trianglePoint].y + points[points.size() - 1].y) / 2;
 
-                        sf::Vector2f newPoint(newX, newY);
-                        points.push_back(newPoint);
+                            sf::Vector2f newPoint(newX, newY);
+                            points.push_back(newPoint);
                         }
                     }
                 }
             }
-            
+
 
         }
 
@@ -197,7 +197,7 @@ int main()
                 vertices.clear();
                 points.clear();
                 restart = false;
-                
+
             }
             else
             {
@@ -212,7 +212,7 @@ int main()
                     randColor = rand() % 6;
                 }
                 //once a user clicks, sets background to the bottom right corner
-                title.setPosition(1100.f, 1000.f);
+                title.setPosition(1540.f, 970.f);
                 //sets the color of the bottom right corner to a random color
                 title.setFillColor(background[randColor]);
                 window.draw(title);
@@ -229,7 +229,7 @@ int main()
             for (int j = 0; j < points.size(); j++)
             {
                 //displays the points after the triangle is set
-                RectangleShape rect2(Vector2f(10, 10));
+                RectangleShape rect2(Vector2f(7, 7));
                 rect2.setPosition(Vector2f(points[j].x, points[j].y));
                 rect2.setFillColor(Color::White);
                 window.draw(rect2);
