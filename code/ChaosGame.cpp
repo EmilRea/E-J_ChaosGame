@@ -24,7 +24,7 @@ int main()
     // Sets font for the title along with it's specifications
     sf::Font font1;
     sf::Text title;
-    font1.loadFromFile("./fonts/ChaosGameFont.ttf");
+    font1.loadFromFile("./fonts/BungeeSpice-Regular.ttf");
     title.setFont(font1);
     title.setString("Chaos Game");
     title.setCharacterSize(50);
