@@ -212,7 +212,7 @@ int main()
                     randColor = rand() % 6;
                 }
                 //once a user clicks, sets background to the bottom right corner
-                title.setPosition(1100.f, 1000.f);
+                title.setPosition(1540.f, 980.f);
                 //sets the color of the bottom right corner to a random color
                 title.setFillColor(background[randColor]);
                 window.draw(title);
