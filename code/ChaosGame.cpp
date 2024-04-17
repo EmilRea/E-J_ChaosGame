@@ -24,7 +24,7 @@ int main()
     // Sets font for the title along with it's specifications
     sf::Font font1;
     sf:Text title;
-    font1.loadFromFile("./fonts/ChaosFont.ttf");
+    font1.loadFromFile("./fonts/ChaosGameFont.ttf");
     title.setFont(font1);
     title.setString("Chaos Game");
     title.setCharacterSize(50);
@@ -46,6 +46,12 @@ int main()
     restarting.setCharacterSize(25);
     restarting.setPosition(1700.f, 1000.f);
     restarting.setFillColor(sf::Color::White);
+
+    sf::Text coords;
+    coords.SetFont(font2);
+    coords.setChracterSize(18); 
+    coords.setPosition(100.f, 100.f);
+    coords.setFillColor(sf::Color::White);
 
     vector<Vector2f> vertices;
     vector<Vector2f> points;
@@ -88,7 +94,11 @@ int main()
                     std::cout << "the left button was pressed" << std::endl;
                     std::cout << "mouse x: " << event.mouseButton.x << std::endl;
                     std::cout << "mouse y: " << event.mouseButton.y << std::endl;
-
+                    
+                    string coord = "(" + event.mouseButton.x + ", " + event.mouseButton.y + ")";
+                    coords.setString(coord);
+                    window.draw(coords);
+                    
                     if (vertices.size() < 3)
                     {
                         vertices.push_back(Vector2f(event.mouseButton.x, event.mouseButton.y));
