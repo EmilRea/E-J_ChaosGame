@@ -47,12 +47,6 @@ int main()
     restarting.setPosition(1700.f, 1000.f);
     restarting.setFillColor(sf::Color::White);
 
-    sf::Text coords;
-    coords.setFont(font2);
-    coords.setCharacterSize(18); 
-    coords.setPosition(100.f, 100.f);
-    coords.setFillColor(sf::Color::White);
-
     vector<Vector2f> vertices;
     vector<Vector2f> points;
 
@@ -94,10 +88,6 @@ int main()
                     std::cout << "the left button was pressed" << std::endl;
                     std::cout << "mouse x: " << event.mouseButton.x << std::endl;
                     std::cout << "mouse y: " << event.mouseButton.y << std::endl;
-                    
-                    string coord = '(' + event.mouseButton.x + ", " + event.mouseButton.y + ')';
-                    coords.setString(coord);
-                    window.draw(coords);
                     
                     if (vertices.size() < 3)
                     {
