@@ -133,37 +133,35 @@ sf:Text title;
             {
                 if (currentArea < area_of_mid_size_triangle)
                 {
-
-                    for (int i = 0; i < 3; i++)//creates 3 dots a frame for a slower pattern generation rate
+                    if (points.size() < 5500)//Medium size triangle and under: stops generating more dots when it his 5500 dots
                     {
-
-                        if (points.size() < 5500)//Medium size triangle and under: stops generating more dots when it his 5500 dots
+                    
+                        for (int i = 0; i < 3; i++)//creates 3 dots a frame for a slower pattern generation rate
                         {
-                            trianglePoint = rand() % 3;
-
-                            newX = (vertices[trianglePoint].x + points[points.size() - 1].x) / 2;
-                            newY = (vertices[trianglePoint].y + points[points.size() - 1].y) / 2;
-
-                            sf::Vector2f newPoint(newX, newY);
-                            points.push_back(newPoint);
-                        }
+                                trianglePoint = rand() % 3;
+            
+                                newX = (vertices[trianglePoint].x + points[points.size() - 1].x) / 2;
+                                newY = (vertices[trianglePoint].y + points[points.size() - 1].y) / 2;
+            
+                                sf::Vector2f newPoint(newX, newY);
+                                points.push_back(newPoint);
+                         }
                     }
-
                 }
-                else
+            }
+            else
+            {
+                if (points.size() < 31000)//medium size triangle and over: stops generating more dots when it hits 31000 dots
                 {
                     for (int i = 0; i < 50; i++)//creats 50 dots a frame to create a bigger pattern faster
                     {
-                        if (points.size() < 31000)//medium size triangle and over: stops generating more dots when it hits 31000 dots
-                        {
                             trianglePoint = rand() % 3;
-
+        
                             newX = (vertices[trianglePoint].x + points[points.size() - 1].x) / 2;
                             newY = (vertices[trianglePoint].y + points[points.size() - 1].y) / 2;
-
+        
                             sf::Vector2f newPoint(newX, newY);
                             points.push_back(newPoint);
-                        }
                     }
                 }
             }
