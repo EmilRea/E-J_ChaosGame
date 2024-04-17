@@ -23,8 +23,8 @@ int main()
 
     // Sets font for the title along with it's specifications
     sf::Font font1;
-sf:Text title;
-    font1.loadFromFile("./fonts/BungeeSpice-Regular.ttf");
+    sf:Text title;
+    font1.loadFromFile("./fonts/ChaosFont.ttf");
     title.setFont(font1);
     title.setString("Chaos Game");
     title.setCharacterSize(50);
@@ -32,7 +32,7 @@ sf:Text title;
     // Sets font for the instructions along with it's specifications
     sf::Font font2;
     sf::Text instructions;
-    font2.loadFromFile("./fonts/Frijole-Regular.ttf");
+    font2.loadFromFile("./fonts/DirectionsFont.ttf");
     instructions.setFont(font2);
     instructions.setString("\n- Click on three points to form a triangle.\n\n- Click on a fourth point to start the chaos.\n\n- Click 'r' to restart.");
     instructions.setCharacterSize(25);
@@ -40,7 +40,7 @@ sf:Text title;
     // Sets restarting screen
     sf::Font font3;
     sf::Text restarting;
-    font3.loadFromFile("./fonts/RockSalt-Regular.ttf");
+    font3.loadFromFile("./fonts/DirectionsFont.ttf");
     restarting.setFont(font3);
     restarting.setString("restarting...");
     restarting.setCharacterSize(25);
@@ -133,35 +133,37 @@ sf:Text title;
             {
                 if (currentArea < area_of_mid_size_triangle)
                 {
-                    if (points.size() < 5500)//Medium size triangle and under: stops generating more dots when it his 5500 dots
+
+                    for (int i = 0; i < 3; i++)//creates 3 dots a frame for a slower pattern generation rate
                     {
-                    
-                        for (int i = 0; i < 3; i++)//creates 3 dots a frame for a slower pattern generation rate
+
+                        if (points.size() < 5500)//Medium size triangle and under: stops generating more dots when it his 5500 dots
                         {
-                                trianglePoint = rand() % 3;
-            
-                                newX = (vertices[trianglePoint].x + points[points.size() - 1].x) / 2;
-                                newY = (vertices[trianglePoint].y + points[points.size() - 1].y) / 2;
-            
-                                sf::Vector2f newPoint(newX, newY);
-                                points.push_back(newPoint);
-                         }
+                            trianglePoint = rand() % 3;
+
+                            newX = (vertices[trianglePoint].x + points[points.size() - 1].x) / 2;
+                            newY = (vertices[trianglePoint].y + points[points.size() - 1].y) / 2;
+
+                            sf::Vector2f newPoint(newX, newY);
+                            points.push_back(newPoint);
+                        }
                     }
+
                 }
-            }
-            else
-            {
-                if (points.size() < 31000)//medium size triangle and over: stops generating more dots when it hits 31000 dots
+                else
                 {
                     for (int i = 0; i < 50; i++)//creats 50 dots a frame to create a bigger pattern faster
                     {
+                        if (points.size() < 31000)//medium size triangle and over: stops generating more dots when it hits 31000 dots
+                        {
                             trianglePoint = rand() % 3;
-        
+
                             newX = (vertices[trianglePoint].x + points[points.size() - 1].x) / 2;
                             newY = (vertices[trianglePoint].y + points[points.size() - 1].y) / 2;
-        
+
                             sf::Vector2f newPoint(newX, newY);
                             points.push_back(newPoint);
+                        }
                     }
                 }
             }
@@ -210,7 +212,7 @@ sf:Text title;
                     randColor = rand() % 6;
                 }
                 //once a user clicks, sets background to the bottom right corner
-                title.setPosition(1540.f, 970.f);
+                title.setPosition(1100.f, 1000.f);
                 //sets the color of the bottom right corner to a random color
                 title.setFillColor(background[randColor]);
                 window.draw(title);
