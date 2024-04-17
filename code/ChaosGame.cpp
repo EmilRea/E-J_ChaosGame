@@ -48,8 +48,8 @@ int main()
     restarting.setFillColor(sf::Color::White);
 
     sf::Text coords;
-    coords.SetFont(font2);
-    coords.setChracterSize(18); 
+    coords.setFont(font2);
+    coords.setCharacterSize(18); 
     coords.setPosition(100.f, 100.f);
     coords.setFillColor(sf::Color::White);
 
@@ -95,7 +95,7 @@ int main()
                     std::cout << "mouse x: " << event.mouseButton.x << std::endl;
                     std::cout << "mouse y: " << event.mouseButton.y << std::endl;
                     
-                    string coord = "(" + event.mouseButton.x + ", " + event.mouseButton.y + ")";
+                    string coord = '(' + event.mouseButton.x + ", " + event.mouseButton.y + ')';
                     coords.setString(coord);
                     window.draw(coords);
                     
