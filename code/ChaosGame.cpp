@@ -24,7 +24,7 @@ int main()
     // Sets font for the title along with it's specifications
     sf::Font font1;
 sf:Text title;
-    font1.loadFromFile("../fonts/BungeeSpice-Regular.ttf");
+    font1.loadFromFile("./fonts/BungeeSpice-Regular.ttf");
     title.setFont(font1);
     title.setString("Chaos Game");
     title.setCharacterSize(50);
@@ -32,7 +32,7 @@ sf:Text title;
     // Sets font for the instructions along with it's specifications
     sf::Font font2;
     sf::Text instructions;
-    font2.loadFromFile("../fonts/Frijole-Regular.ttf");
+    font2.loadFromFile("./fonts/Frijole-Regular.ttf");
     instructions.setFont(font2);
     instructions.setString("\n- Click on three points to form a triangle.\n\n- Click on a fourth point to start the chaos.\n\n- Click 'r' to restart.");
     instructions.setCharacterSize(25);
@@ -40,7 +40,7 @@ sf:Text title;
     // Sets restarting screen
     sf::Font font3;
     sf::Text restarting;
-    font3.loadFromFile("../fonts/RockSalt-Regular.ttf");
+    font3.loadFromFile("./fonts/RockSalt-Regular.ttf");
     restarting.setFont(font3);
     restarting.setString("restarting...");
     restarting.setCharacterSize(25);
